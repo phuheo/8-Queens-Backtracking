@@ -3,22 +3,19 @@ package Queens;
 public class Queens {
 
 	   /***************************************************************************
-	    * Return true if queen placement q[n] does not conflict with
-	    * other queens q[0] through q[n-1]
 	    Kiểm tra nếu đặt quân hậu ở vị trí q[n] ko ảnh hưởng đến các quân khác ở các vị trí q[0] tới q[n-1]
 	    Trả lại true nếu phù hợp điều kiện các quân ko gặp nhau
 	    ***************************************************************************/
 	    public static boolean isConsistent(int[] q, int n) {
 	        for (int i = 0; i < n; i++) {
-	            if (q[i] == q[n])             return false;   // same column kiểm tra cùng hàng
-	            if ((q[i] - q[n]) == (n - i)) return false;   // same major diagonal kiểm tra đường chéo
-	            if ((q[n] - q[i]) == (n - i)) return false;   // same minor diagonal kiểm tra đường chéo 
+	            if (q[i] == q[n])             return false;   //  kiểm tra cùng hàng
+	            if ((q[i] - q[n]) == (n - i)) return false;   //  kiểm tra đường chéo
+	            if ((q[n] - q[i]) == (n - i)) return false;   //  kiểm tra đường chéo 
 	        }
 	        return true;
 	    }
 
 	   /***************************************************************************
-	    * Prints n-by-n placement of queens from permutation q in ASCII.
 	    * In ra bàn cờ
 	    ***************************************************************************/
 	    public static void printQueens(int[] q) {
@@ -32,11 +29,7 @@ public class Queens {
 	        }  
 	        System.out.println();
 	    }
-
-
-	   /***************************************************************************
-	    *  Try all permutations using backtracking
-	    ***************************************************************************/
+	
 	    public static void enumerate(int n) {
 	        int[] a = new int[n];
 	        enumerate(a, 0);
